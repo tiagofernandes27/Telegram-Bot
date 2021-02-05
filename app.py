@@ -31,13 +31,6 @@ def respond():
        """
        # send the welcoming message
        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
-   
-   # responds to /name or /nome with user's name
-   elif text == "/name" or text == "/nome":
-       username = message.from_user.first_name()
-       textname = "Your name is " + username
-       bot.sendMessage(update.message.chat_id, str(update.message.from_user.username))
-
    else:
        try:
            # clear the message we got from any non alphabets
