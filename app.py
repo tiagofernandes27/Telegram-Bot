@@ -34,8 +34,13 @@ def respond():
    else:
        try:
            if text == "/name":
-                username = update.message.chat.first_name
-                bot.sendMessage(chat_id=chat_id, text=username, reply_to_message_id=msg_id)
+                firstname = update.message.chat.first_name
+                textname="Your first name is {}.".format(firstname)
+                bot.sendMessage(chat_id=chat_id, text=textname, reply_to_message_id=msg_id)
+           elif text == "/fullname":
+                lastname = update.message.chat.last_name
+                fullname = "{} {}".format(firstname, lastname)
+                textfullname = "Your full name is {}".format(fullname) 
            else:
                 # echos message
                 bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
