@@ -31,17 +31,18 @@ def respond():
        """
        # send the welcoming message
        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
-   elif text == "/name":
-       username = bot.getChat(update.message.chat_id)
-       bot.sendMessage(chat_id=chat_id, text=username, reply_to_message_id=msg_id)
    else:
-       try:
-           # echos message
-           bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
+        if text == "/name":
+            username = bot.getChat(update.message.chat_id)
+            bot.sendMessage(chat_id=chat_id, text=username, reply_to_message_id=msg_id)
+        else:
+            try:
+                # echos message
+                bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
 
-       except Exception:
-           # if things went wrong
-           bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
+            except Exception:
+                # if things went wrong
+                bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
    return 'ok'
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
