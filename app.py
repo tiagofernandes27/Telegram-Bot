@@ -34,7 +34,8 @@ def respond():
    else:
        try:
            if text == "/name":
-                username = message.from_user.first_name
+                user = update.message.from_user
+                username = user['username']
                 bot.sendMessage(chat_id=chat_id, text=username, reply_to_message_id=msg_id)
            else:
                 # echos message
