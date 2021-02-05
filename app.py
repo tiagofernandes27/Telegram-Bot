@@ -31,11 +31,11 @@ def respond():
        """
        # send the welcoming message
        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
+   elif text == "/name":
+       username = bot.getChat(update.message.chat_id)
+       bot.sendMessage(chat_id=chat_id, text=username, reply_to_message_id=msg_id)
    else:
        try:
-           # clear the message we got from any non alphabets
-           text = re.sub(r"\W", "_", text)
-           
            # echos message
            bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
 
