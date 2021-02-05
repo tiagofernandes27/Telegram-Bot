@@ -27,7 +27,7 @@ def respond():
    if text == "/start":
        # print the welcoming message
        bot_welcome = """
-       Welcome to testegaia bot, the bot is using the service from http://avatars.adorable.io/ to generate cool looking avatars based on the name you enter so please enter a name and the bot will reply with an avatar for your name.
+       Welcome to testegaia bot.
        """
        # send the welcoming message
        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
@@ -36,11 +36,8 @@ def respond():
            # clear the message we got from any non alphabets
            text = re.sub(r"\W", "_", text)
 
-           # create the api link for the avatar based on http://avatars.adorable.io/
-           url = "https://api.adorable.io/avatars/285/{}.png".format(text.strip())
-           # reply with a photo to the name the user sent,
-           # note that you can send photos by url and telegram will fetch it for you
-           bot.sendPhoto(chat_id=chat_id, photo=url, reply_to_message_id=msg_id)
+            bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
+
        except Exception:
            # if things went wrong
            bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
