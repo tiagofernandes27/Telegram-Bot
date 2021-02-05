@@ -41,6 +41,7 @@ def respond():
                 lastname = update.message.chat.last_name
                 fullname = "{} {}".format(firstname, lastname)
                 textfullname = "Your full name is {}".format(fullname) 
+                bot.sendMessage(chat_id=chat_id, text=fullname, reply_to_message_id=msg_id)
            else:
                 # echos message
                 bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
