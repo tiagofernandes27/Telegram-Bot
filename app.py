@@ -33,7 +33,7 @@ def respond():
        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
    else:
        try:
-           if text = "/name":
+           if text == "/name":
                first_name = update.message.chat.first_name
                bot.sendMessage(chat_id=chat_id, text=first_name, reply_to_message_id=msg_id)
            else:
