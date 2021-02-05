@@ -34,9 +34,9 @@ def respond():
    
    # responds to /name or /nome with user's name
    elif text == "/name" or text == "/nome":
-       username = message.from_user.first_name
+       username = message.from_user.first_name()
        textname = "Your name is " + username
-       bot.sendMessage(chat_id=chat_id, text=textname, reply_to_message_id=msg_id)
+       bot.sendMessage(update.message.chat_id, str(update.message.from_user.username))
 
    else:
        try:
