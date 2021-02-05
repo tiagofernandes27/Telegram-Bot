@@ -36,7 +36,7 @@ def respond():
            # clear the message we got from any non alphabets
            text = re.sub(r"\W", "_", text)
            # echos inserted message
-           bot.sendMessage(chat_id=chat_id, text="{text}", reply_to_message_id=msg_id)
+           bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
 
        except Exception:
            # if things went wrong
