@@ -46,6 +46,8 @@ def respond():
                first_name = update.message.chat.first_name
                last_name = update.message.chat.last_name
                bot.sendMessage(chat_id=chat_id, text="Your full name is {} {}.".format(first_name, last_name), reply_to_message_id=msg_id)
+           elif text == "/meet":
+               bot.sendMessage(chat_id=chat_id, text="https://meet.google.com/ssx-daxk-htu")
            else:
                 # echos message
                 bot.sendMessage(chat_id=chat_id, text=text, reply_to_message_id=msg_id)
