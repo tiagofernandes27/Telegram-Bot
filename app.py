@@ -49,7 +49,7 @@ def respond():
            elif text == "/meet":
                bot.sendMessage(chat_id=chat_id, text="https://meet.google.com/ssx-daxk-htu")
            elif text == "/commands":
-               commands = "You can use the following commands: /name , /fullname , /meet . Enjoy!"
+               commands = "You can use the following commands: /name , /fullname , /meet . Also, if you write anything else the bot will echo your message. Enjoy!"
                bot.sendMessage(chat_id=chat_id, text=commands)
            else:
                 # echos message
