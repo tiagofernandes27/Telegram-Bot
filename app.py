@@ -17,7 +17,6 @@ def respond():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
 
     data = request.get_json()
-
     print(data)
 
     chat_id = data['message']['chat']['id']
