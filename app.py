@@ -18,9 +18,12 @@ def respond():
 
     data = request.get_json()
 
+    print(data)
+
     chat_id = data['message']['chat']['id']
     msg_id = data['message']['message_id']
-    text = data['message']['text']
+
+    text = data['message']['text'] if 'text' in data['message'] else ''
 
     # the first time you chat with the bot AKA the welcoming message
     if text == "/start@cagado_de_fome_bot":
