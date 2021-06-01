@@ -35,7 +35,12 @@ def respond():
                         reply_to_message_id=msg_id)
     else:
         try:
-            if text.lower().__contains__("dia") and text.lower().__contains__("bom"):
+            variations = [
+                "dia",
+                "bao",
+                "bão"
+            ]
+            if (text.lower().__contains__("dia") and text.lower().__contains__("bom")) or text.lower() in variations:
                 bot.send_photo(chat_id=chat_id, photo="https://imageproxy.ifunny.co/crop:x-20,resize:640x,quality:90x75/images/100f67b3b98cfc6c64bcefc82ce3424eeeeca1765397a63996e17d66701baad5_1.jpg",
                                 reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
