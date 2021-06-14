@@ -29,11 +29,10 @@ def respond():
     if text == "/start@cagado_de_fome_bot":
         # print the welcoming message
         bot_welcome = """
-       Hello there!
-       """
+            Hello there!
+        """
         # send the welcoming message
-        bot.sendMessage(chat_id=chat_id, text=bot_welcome,
-                        reply_to_message_id=msg_id)
+        bot.sendMessage(chat_id=chat_id, text=bot_welcome,reply_to_message_id=msg_id)
     else:
         try:
             variations = [
@@ -55,16 +54,30 @@ def respond():
                     bot.sendMessage(chat_id=chat_id, text="Bom dia!",
                                 reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
-                allcommands = "Aqui tens todos os comandos que pode utilizar\n\n/gitcomment\n/wiki\n/make\n/projects\n/gitbranches"
-                bot.sendMessage(chat_id=chat_id, text=allcommands,
-                                reply_to_message_id=msg_id)
+                allcommands = """
+                    Aqui tens todos os comandos que pode utilizar\n\n
+                    /gitcomment\n
+                    /wiki\n
+                    /make\n
+                    /projects\n
+                    /gitbranches
+                """
+                bot.sendMessage(chat_id=chat_id, text=allcommands, reply_to_message_id=msg_id)
             elif text == "/gitcomment@cagado_de_fome_bot":
-                comment = "* feat(shopping cart): add the amazing button\n* fix: add missing parameter to service call\n\n  The error occurred because of <reasons>.\n\n* build: release version 1.0.0\n* build: update dependencies\n* refactor: implement calculation method as recursion\n* style: remove empty line\n* revert: refactor: implement calculation method as recursion\n\n  This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a."
-                bot.sendMessage(chat_id=chat_id, text=comment,
-                                reply_to_message_id=msg_id)
+                comment = """
+                    * feat(shopping cart): add the amazing button\n
+                    * fix: add missing parameter to service call\n\n
+                      The error occurred because of <reasons>.\n\n
+                    * build: release version 1.0.0\n
+                    * build: update dependencies\n
+                    * refactor: implement calculation method as recursion\n
+                    * style: remove empty line\n
+                    * revert: refactor: implement calculation method as recursion\n\n
+                      This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a.
+                """
+                bot.sendMessage(chat_id=chat_id, text=comment, reply_to_message_id=msg_id)
             elif text == "/wiki@cagado_de_fome_bot":
-                bot.sendMessage(
-                    chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
+                bot.sendMessage(chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
             elif text == "/make@cagado_de_fome_bot":
                 make = """
                     'make setup' - creates all the environment for the project, usually this command is inside API module\n
@@ -85,18 +98,24 @@ def respond():
                 bot.sendMessage(chat_id=chat_id, text=projects,
                                 reply_to_message_id=msg_id)
             elif text == "/gitbranches@cagado_de_fome_bot":
-                gitbranches = "You have to always create your branch from 'DEVELOP' branch\n\nIn https://sprints.zoho.com/ you can see your tasks\nThe name of your branch is the Card ID inside zoho\n\nOBS: Your branch have to follow some guidelines\n\n* If the card type is an issue or bug your branch has to be named as: issue/<card_id>\n* If the card type is a task or story your branch has to be named as: feature/<card_id>\n    * remember that if your branch is a story, you can name it as the parent card id\n      and make all the child tasks inside this branch"
-                bot.sendMessage(chat_id=chat_id, text=gitbranches,
-                                reply_to_message_id=msg_id)
+                gitbranches = """
+                    You have to always create your branch from 'DEVELOP' branch\n\n
+                    In https://sprints.zoho.com/ you can see your tasks\n
+                    The name of your branch is the Card ID inside zoho\n\n
+                    OBS: Your branch has to follow some guidelines\n\n
+                    * If the card type is an issue or bug your branch has to be named as: issue/<card_id>\n
+                    * If the card type is a task or story your branch has to be named as: feature/<card_id>\n
+                        * remember that if your branch is a story, you can name it as the parent card id\n
+                        and make all the child tasks inside this branch
+                """
+                bot.sendMessage(chat_id=chat_id, text=gitbranches, reply_to_message_id=msg_id)
             else:
                 pass
 
         except Exception:
             # if things went wrong
-            bot.sendMessage(
-                chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
+            bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
     return 'ok'
-
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
 def set_webhook():
@@ -110,7 +129,6 @@ def set_webhook():
 @app.route('/')
 def index():
     return '.'
-
 
 if __name__ == '__main__':
     app.run(threaded=True)
