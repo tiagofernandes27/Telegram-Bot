@@ -48,9 +48,12 @@ def respond():
                 (text.lower().__contains__("morning") and text.lower().__contains__("good")) or \
                 (text.lower().__contains__("day") and text.lower().__contains__("good")) or \
                 text.lower() in variations:
-                if random.randint(0, 10)%2 == 0:
+                if random.randint(0, 100)%3 == 0:
                     bot.send_photo(chat_id=chat_id, photo="https://i.pinimg.com/originals/f5/38/4c/f5384c0fb15fdee7b36985ca4e2d98d5.png",
                                     reply_to_message_id=msg_id)
+                if random.randint(0, 100)%4 == 0:
+                    bot.sendMessage(chat_id=chat_id, text="Bom dia!",
+                                reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
                 allcommands = "Aqui tens todos os comandos que pode utilizar\n\n/gitcomment\n/wiki\n/make\n/projects\n/gitbranches"
                 bot.sendMessage(chat_id=chat_id, text=allcommands,
@@ -63,7 +66,18 @@ def respond():
                 bot.sendMessage(
                     chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
             elif text == "/make@cagado_de_fome_bot":
-                make = "'make setup' - creates all the environment for the project, usually this command is inside API module\n'make destroy' - destroy the environment for the project, usually this command is inside API module\n'make up' - turn on cluster, this command is usually available inside API module\n'make down' - turn off cluster, this command is usually available inside API module\n'make debug' - you can debug your module inside the cluster\n'make cleanup' - clean your module if something is wrong\n'make add_dep' - add dependencies into the project without the need of overwrite requirements file\n'make rm_dep' - remove dependencies into the project without the need of overwrite requirements file\n'make logs' - shows the server activity within 10 minutes\n'make minikube_set_memory [memory]' - changes the amount of memory of your cluster"
+                make = """
+                    'make setup' - creates all the environment for the project, usually this command is inside API module\n
+                    'make destroy' - destroy the environment for the project, usually this command is inside API module\n
+                    'make up' - turn on cluster, this command is usually available inside API module\n
+                    'make down' - turn off cluster, this command is usually available inside API module\n
+                    'make debug' - you can debug your module inside the cluster\n
+                    'make cleanup' - clean your module if something is wrong\n
+                    'make add_dep' - add dependencies into the project without the need of overwrite requirements file\n
+                    'make rm_dep' - remove dependencies into the project without the need of overwrite requirements file\n
+                    'make logs' - shows the server activity within 10 minutes\n
+                    'make minikube_set_memory [memory]' - changes the amount of memory of your cluster
+                """
                 bot.sendMessage(chat_id=chat_id, text=make,
                                 reply_to_message_id=msg_id)
             elif text == "/projects@cagado_de_fome_bot":
