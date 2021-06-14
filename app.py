@@ -49,7 +49,7 @@ def respond():
                 (text.lower().__contains__("day") and text.lower().__contains__("good")) or \
                 text.lower() in variations:
                 if random.randint(0, 10)%2 == 0:
-                    bot.send_photo(chat_id=chat_id, photo="https://imageproxy.ifunny.co/crop:x-20,resize:640x,quality:90x75/images/100f67b3b98cfc6c64bcefc82ce3424eeeeca1765397a63996e17d66701baad5_1.jpg",
+                    bot.send_photo(chat_id=chat_id, photo="https://i.pinimg.com/originals/f5/38/4c/f5384c0fb15fdee7b36985ca4e2d98d5.png",
                                     reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
                 allcommands = "Aqui tens todos os comandos que pode utilizar\n\n/gitcomment\n/wiki\n/make\n/projects\n/gitbranches"
