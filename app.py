@@ -33,24 +33,24 @@ def respond():
         bot.sendMessage(chat_id=chat_id, text=bot_welcome,reply_to_message_id=msg_id)
     else:
         try:
-            variations = [
-                "dia",
-                "bao",
-                "bão",
-                "day",
-                "dias"
-            ]
-            if (text.lower().__contains__("dia") and text.lower().__contains__("bom")) or \
-                (text.lower().__contains__("dias") and text.lower().__contains__("buenos")) or \
-                (text.lower().__contains__("morning") and text.lower().__contains__("good")) or \
-                (text.lower().__contains__("day") and text.lower().__contains__("good")) or \
-                text.lower() in variations:
-                if random.randint(0, 10)%3 == 0:
-                    bot.send_photo(chat_id=chat_id, photo="https://i.pinimg.com/originals/f5/38/4c/f5384c0fb15fdee7b36985ca4e2d98d5.png",
-                                    reply_to_message_id=msg_id)
-                if random.randint(0, 10)%4 == 0:
-                    bot.sendMessage(chat_id=chat_id, text="Bom dia!",
-                                reply_to_message_id=msg_id)
+            # variations = [
+            #     "dia",
+            #     "bao",
+            #     "bão",
+            #     "day",
+            #     "dias"
+            # ]
+            # if (text.lower().__contains__("dia") and text.lower().__contains__("bom")) or \
+            #     (text.lower().__contains__("dias") and text.lower().__contains__("buenos")) or \
+            #     (text.lower().__contains__("morning") and text.lower().__contains__("good")) or \
+            #     (text.lower().__contains__("day") and text.lower().__contains__("good")) or \
+            #     text.lower() in variations:
+            #     if random.randint(0, 10)%3 == 0:
+            #         bot.send_photo(chat_id=chat_id, photo="https://i.pinimg.com/originals/f5/38/4c/f5384c0fb15fdee7b36985ca4e2d98d5.png",
+            #                         reply_to_message_id=msg_id)
+            #     if random.randint(0, 10)%4 == 0:
+            #         bot.sendMessage(chat_id=chat_id, text="Bom dia!",
+            #                     reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
                 allcommands = """
                     Aqui tens todos os comandos que pode utilizar\n\n
