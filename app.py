@@ -56,7 +56,7 @@ def respond():
                     * revert: refactor: implement calculation method as recursion\n
                       This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a.
                 """
-                bot.sendMessage(chat_id=chat_id, text=comment.replace(' ', ''), reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=comment, reply_to_message_id=msg_id)
             elif text == "/wiki@cagado_de_fome_bot":
                 bot.sendMessage(chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
             elif text == "/make@cagado_de_fome_bot":
@@ -95,6 +95,7 @@ def respond():
                     We have this security manual to search for best pratices within application.\n
                     https://github.com/OWASP/wstg/tree/master/document
                 """
+                bot.sendMessage(chat_id=chat_id, text=security, reply_to_message_id=msg_id)
             else:
                 pass
 
