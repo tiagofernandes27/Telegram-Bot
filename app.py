@@ -43,8 +43,7 @@ def respond():
                     /gitbranches
                     /application_security
                 """
-                allcommands = re.sub(' {2,}', allcommands)
-                bot.sendMessage(chat_id=chat_id, text=allcommands, reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', allcommands), reply_to_message_id=msg_id)
             elif text == "/gitcomment@cagado_de_fome_bot":
                 comment = """
                     * feat(shopping cart): add the amazing button
@@ -57,7 +56,7 @@ def respond():
                     * revert: refactor: implement calculation method as recursion
                       This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a.
                 """
-                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', comment), reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', comment), reply_to_message_id=msg_id)
             elif text == "/wiki@cagado_de_fome_bot":
                 bot.sendMessage(chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
             elif text == "/make@cagado_de_fome_bot":
@@ -73,7 +72,7 @@ def respond():
                     'make logs' - shows the server activity within 10 minutes
                     'make minikube_set_memory [memory]' - changes the amount of memory of your cluster
                 """
-                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', make), reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', make), reply_to_message_id=msg_id)
             elif text == "/projects@cagado_de_fome_bot":
                 projects = "'gaia' - G.AI.A\n<https://caosdata.visualstudio.com/gaia-app>\n'gaiabmg' - Gaia For BMG\n<https://caosdata.visualstudio.com/gaiabmg-app>\n'magiccupom' - Magic Cupom\n<https://caosdata.visualstudio.com/magiccupom-app>\n'scutaai' - Scuta.AI\n<https://caosdata.visualstudio.com/scutaai-app>\n'countdown-cocacola' - Countdown to Holidays\n<https://caosdata.visualstudio.com/cokenft-app>'"
                 bot.sendMessage(chat_id=chat_id, text=projects,
@@ -89,7 +88,7 @@ def respond():
                         * remember that if your branch is a story, you can name it as the parent card id
                         and make all the child tasks inside this branch
                 """
-                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', gitbranches), reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', gitbranches), reply_to_message_id=msg_id)
             elif text == "/application_security@cagado_de_fome_bot":
                 security = """
                     We have this security manual to search for best pratices within application.
