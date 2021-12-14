@@ -33,24 +33,6 @@ def respond():
         bot.sendMessage(chat_id=chat_id, text=bot_welcome,reply_to_message_id=msg_id)
     else:
         try:
-            # variations = [
-            #     "dia",
-            #     "bao",
-            #     "bão",
-            #     "day",
-            #     "dias"
-            # ]
-            # if (text.lower().__contains__("dia") and text.lower().__contains__("bom")) or \
-            #     (text.lower().__contains__("dias") and text.lower().__contains__("buenos")) or \
-            #     (text.lower().__contains__("morning") and text.lower().__contains__("good")) or \
-            #     (text.lower().__contains__("day") and text.lower().__contains__("good")) or \
-            #     text.lower() in variations:
-            #     if random.randint(0, 10)%3 == 0:
-            #         bot.send_photo(chat_id=chat_id, photo="https://i.pinimg.com/originals/f5/38/4c/f5384c0fb15fdee7b36985ca4e2d98d5.png",
-            #                         reply_to_message_id=msg_id)
-            #     if random.randint(0, 10)%4 == 0:
-            #         bot.sendMessage(chat_id=chat_id, text="Bom dia!",
-            #                     reply_to_message_id=msg_id)
             if text == "/allcommands@cagado_de_fome_bot":
                 allcommands = """
                     Aqui tens todos os comandos que pode utilizar\n\n
@@ -59,21 +41,22 @@ def respond():
                     /make\n
                     /projects\n
                     /gitbranches
+                    /application_security
                 """
                 bot.sendMessage(chat_id=chat_id, text=allcommands, reply_to_message_id=msg_id)
             elif text == "/gitcomment@cagado_de_fome_bot":
                 comment = """
                     * feat(shopping cart): add the amazing button\n
-                    * fix: add missing parameter to service call\n\n
-                      The error occurred because of <reasons>.\n\n
+                    * fix: add missing parameter to service call\n
+                      The error occurred because of <reasons>.\n
                     * build: release version 1.0.0\n
                     * build: update dependencies\n
                     * refactor: implement calculation method as recursion\n
                     * style: remove empty line\n
-                    * revert: refactor: implement calculation method as recursion\n\n
+                    * revert: refactor: implement calculation method as recursion\n
                       This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a.
                 """
-                bot.sendMessage(chat_id=chat_id, text=comment, reply_to_message_id=msg_id)
+                bot.sendMessage(chat_id=chat_id, text=comment.replace(' ', ''), reply_to_message_id=msg_id)
             elif text == "/wiki@cagado_de_fome_bot":
                 bot.sendMessage(chat_id=chat_id, text="https://caosdata.visualstudio.com/magiccupom-app/_wiki/wikis/magiccupom-app.wiki/2/Welcome-to-Magic-Cupom-APP")
             elif text == "/make@cagado_de_fome_bot":
@@ -92,7 +75,7 @@ def respond():
                 bot.sendMessage(chat_id=chat_id, text=make,
                                 reply_to_message_id=msg_id)
             elif text == "/projects@cagado_de_fome_bot":
-                projects = "'gaia' - G.AI.A\n<https://caosdata.visualstudio.com/gaia-app>\n'gaiabmg' - Gaia For BMG\n<https://caosdata.visualstudio.com/gaiabmg-app>\n'magiccupom' - Magic Cupom\n<https://caosdata.visualstudio.com/magiccupom-app>\n'scutaai' - Scuta.AI\n<https://caosdata.visualstudio.com/scutaai-app>"
+                projects = "'gaia' - G.AI.A\n<https://caosdata.visualstudio.com/gaia-app>\n'gaiabmg' - Gaia For BMG\n<https://caosdata.visualstudio.com/gaiabmg-app>\n'magiccupom' - Magic Cupom\n<https://caosdata.visualstudio.com/magiccupom-app>\n'scutaai' - Scuta.AI\n<https://caosdata.visualstudio.com/scutaai-app>\n'countdown-cocacola - Countdown to Holidays\n<https://caosdata.visualstudio.com/cokenft-app>'"
                 bot.sendMessage(chat_id=chat_id, text=projects,
                                 reply_to_message_id=msg_id)
             elif text == "/gitbranches@cagado_de_fome_bot":
@@ -107,6 +90,11 @@ def respond():
                         and make all the child tasks inside this branch
                 """
                 bot.sendMessage(chat_id=chat_id, text=gitbranches, reply_to_message_id=msg_id)
+            elif text == "/application_security@cagado_de_fome_bot":
+                security = """
+                    We have this security manual to search for best pratices within application.\n
+                    https://github.com/OWASP/wstg/tree/master/document
+                """
             else:
                 pass
 
