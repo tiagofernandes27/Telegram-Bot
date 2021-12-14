@@ -43,7 +43,8 @@ def respond():
                     /gitbranches
                     /application_security
                 """
-                bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', allcommands), reply_to_message_id=msg_id)
+                allcommands = re.sub(' {2,}', allcommands)
+                bot.sendMessage(chat_id=chat_id, text=allcommands, reply_to_message_id=msg_id)
             elif text == "/gitcomment@cagado_de_fome_bot":
                 comment = """
                     * feat(shopping cart): add the amazing button
