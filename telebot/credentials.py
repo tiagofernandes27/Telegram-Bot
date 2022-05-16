@@ -1,3 +1,3 @@
-bot_token = "1614848237:AAHFE2Cq55LYWJyOxNm5nvfPlkvWgs1FI6k"
-bot_user_name = "TestiGBot"
-URL = "https://testegaiabot.herokuapp.com/"
+bot_token = "1193200872:AAE5nIDPFvDeDCSL5JC_s2H0eY4p5xNeS7k"
+bot_user_name = "cagado_de_fome_bot"
+URL = "https://gaiadevbot.herokuapp.com/"
