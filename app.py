@@ -46,7 +46,7 @@ def respond():
                 bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', allcommands), reply_to_message_id=msg_id)
             elif text == "/gitcomment@cagado_de_fome_bot":
                 comment = """
-                    * feat(shopping cart): add the amazing button
+                    * feat: add the amazing button
                     * fix: add missing parameter to service call
                       The error occurred because of <reasons>.
                     * build: release version 1.0.0
@@ -55,6 +55,8 @@ def respond():
                     * style: remove empty line
                     * revert: refactor: implement calculation method as recursion
                       This reverts commit 221d3ec6ffeead67cee8c730c4a15cf8dc84897a.
+                    
+                    All These examples can be found at: https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13
                 """
                 bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', comment), reply_to_message_id=msg_id)
             elif text == "/wiki@cagado_de_fome_bot":
@@ -85,8 +87,6 @@ def respond():
                     OBS: Your branch has to follow some guidelines\n
                     * If the card type is an issue or bug your branch has to be named as: issue/<card_id>
                     * If the card type is a task or story your branch has to be named as: feature/<card_id>
-                        * remember that if your branch is a story, you can name it as the parent card id
-                        and make all the child tasks inside this branch
                 """
                 bot.sendMessage(chat_id=chat_id, text=re.sub(' {2,}', '', gitbranches), reply_to_message_id=msg_id)
             elif text == "/application_security@cagado_de_fome_bot":
