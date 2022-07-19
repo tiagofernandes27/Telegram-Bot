@@ -114,9 +114,6 @@ def set_webhook():
 def innovation_hooks():
     data = request.get_json()
 
-    print(data)
-
-    hook_type = ""
     message = ""
     if 'ref' in data:
         message = f"{data['pusher']['name']} pushed into {data['repository']['name']}\n\nDIFF URL: {data['compare']}"
