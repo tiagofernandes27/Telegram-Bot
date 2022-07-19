@@ -1,6 +1,6 @@
 import random
 import re
-from flask import Flask, request
+from flask import Flask, request, make_response
 import telegram
 from telebot.credentials import bot_token, bot_user_name, URL
 
@@ -17,7 +17,6 @@ def respond():
     # retrieve the message in JSON and then transform it to Telegram object
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     data = request.get_json()
-    # print(data)
 
     chat_id = data['message']['chat']['id']
     msg_id = data['message']['message_id']
@@ -111,6 +110,38 @@ def set_webhook():
     else:
         return "webhook setup failed"
 
+@app.route('/innovation/hooks/github', methods=['POST', 'GET'])
+def innovation_hooks():
+    data = request.get_json()
+
+    print(data)
+
+    hook_type = ""
+    message = ""
+    if 'ref' in data:
+        message = f"{data['pusher']['name']} pushed into {data['repository']['name']}\n\nDIFF URL: {data['compare']}"
+    
+    if 'action' in data and 'issue' in data and 'comment' in data:
+        message = f"{data['sender']['login']} {data['action']} a comment in {data['repository']['full_name']}.\n\nIssue URL: {data['issue']['url']}\n\nComment URL: {data['comment']['url']}"
+    
+    if 'action' in data and 'issue' in data and 'comment' not in data:
+        message = f"{data['sender']['login']} {data['action']} an issue in {data['repository']['full_name']}.\n\nIssue Name: {data['issue']['title']}\nIssue URL: {data['issue']['url']}"
+    
+    if 'pull_request' in data and 'review' not in data and 'thread' not in data and 'comment' not in data:
+        message = f"{data['sender']['login']} {data['action']} a pull request in {data['repository']['full_name']}.\n\nPull Request URL: {data['pull_request']['url']}"
+
+    if 'pull_request' in data and 'review' in data:
+        message = f"{data['sender']['login']} {data['action']} a review in the pull request in {data['repository']['full_name']}.\n\nPull Request URL: {data['pull_request']['url']}"
+
+    if 'pull_request' in data and 'comment' in data:
+        message = f"{data['sender']['login']} {data['action']} commented in the pull request in {data['repository']['full_name']}.\n\nPull Request URL: {data['pull_request']['url']}\nComment URL: {data['comment']['url']}"
+
+    if 'pull_request' in data and 'thread' in data:
+        message = f"{data['sender']['login']} {data['action']} a thread in the pull request in {data['repository']['full_name']}.\n\nPull Request URL: {data['pull_request']['url']}"
+
+    bot.send_message(chat_id=-1001328661879, text=message)
+
+    return make_response({}, 200)
 
 @app.route('/')
 def index():
