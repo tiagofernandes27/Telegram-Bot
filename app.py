@@ -114,15 +114,13 @@ def set_webhook():
 def innovation_hooks():
     data = request.get_json()
 
-    print(data)
-
     hook_type = ""
     message = ""
     if 'ref' in data:
         message = f"{data['pusher']['name']} pushed into {data['repository']['name']}\n\nDIFF URL: {data['compare']}"
     
     if 'action' in data and 'issue' in data and 'comment' in data:
-        message = f"{data['sender']['login']} {data['action']} a comment in {data['repository']['full_name']}.\n\nIssue URL: {data['issue']['url']}\n\nComment URL: {data['comment']['url']}"
+        message = f"{data['sender']['login']} {data['action']} a comment in {data['repository']['full_name']}.\n\nIssue URL: {data['issue']['html_url']}\n\nComment URL: {data['comment']['url']}"
     
     if 'action' in data and 'issue' in data and 'comment' not in data:
         message = f"{data['sender']['login']} {data['action']} an issue in {data['repository']['full_name']}.\n\nIssue Name: {data['issue']['title']}\nIssue URL: {data['issue']['url']}"
